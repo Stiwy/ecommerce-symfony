@@ -2,24 +2,24 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\User;
+use App\Entity\Product;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
-class UserCrudController extends AbstractCrudController
+class ProductCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return User::class;
+        return Product::class;
     }
 
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->setEntityLabelInSingular('un utilisateur')
-            ->setEntityLabelInPlural('des utilisateurs')
-            ->setPageTitle("index", "Tous les utilisateurs")
-            ->setPageTitle("new", "Créer un utilisateur")
+            ->setEntityLabelInSingular('un produit')
+            ->setEntityLabelInPlural('des produits')
+            ->setPageTitle("index", "Tous les produits")
+            ->setPageTitle("new", "Créer un produit")
             ;
     }
 
