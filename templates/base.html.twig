@@ -26,24 +26,34 @@
     </style>
     <!-- Custom styles for this template -->
     <link href="{{ asset("assets/css/carousel.css") }}" rel="stylesheet">
+    <link href="{{ asset("assets/css/style.css") }}" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand" href="#">E-commerce Symfony</a>
+            <a class="navbar-brand" href="{{ path('app_home') }}">E-commerce Symfony</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">Nos produits</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="#">Qui sommes nous ?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
-                <form class="form-inline mt-2 mt-md-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Votre recherche" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
-                </form>
+                <div class="text-light">
+                    {% if (app.user) %}
+                        <a class="text-light" href="{{ path('app_account') }}">Mon compte <small>(Bonjour {{ app.user.firstname }})</small></a> | <a class="text-light" href="{{ path('app_logout') }}">Déconnexion</a>
+                    {% else %}
+                        <a class="text-light" href="{{ path('app_login') }}">Connexion</a> | <a class="text-light" href="{{ path('app_register') }}">Inscription</a>
+                    {% endif %}
+                </div>
             </div>
         </nav>
     </header>
@@ -53,9 +63,14 @@
         <!-- FOOTER -->
     </main>
 
-    <footer class="container">
-        <p class="float-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2017-2020 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    <footer class="text-center py-4 text-white bg-dark position-absolute bottom-0 w-100">
+        <p>&copy; 2017-2022 E-commerce Symfony <br>
+            <small>
+                Boutique fictive de démo. <br>
+                &middot; <a class="text-light" href="#">Mentions légals</a> &middot;
+                &middot; <a class="text-light" href="#">Polique de confidentialitée</a>
+            </small> &middot;
+        </p>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
