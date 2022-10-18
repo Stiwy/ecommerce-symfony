@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos produits{% endblock %}
+
+{% block body %}
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="/uploads/images/products/{{ product.image }}" class="img-fluid" alt="{{ product.name }}">
+        </div>
+        <div class="col-md-6">
+            <h1 class="h2">{{ product.name }}</h1>
+
+            <div>
+                <small>Prix : </small>
+                <br>
+                <span class="h2 pl-2 my-5">{{ ((product.price/100)*1.20)|number_format(2, ',') }} € <small>TTC</small></span>
+            </div>
+
+            <div class="border-top border-secondary mt-5 pt-5">
+                <small>Description : </small>
+                <div class="pl-2">
+                    <h2 class="h5">{{ product.subtitle }}</h2>
+                    <p>
+                        {{ product.description|raw }}
+                    </p>
+                </div>
+            </div>
+
+            <form action="" class="border-top border-secondary mt-5 pt-5">
+                <div class="form-group col-md-4">
+                    <label for="qte_product">Qunatité</label>
+                    <input class="form-control text-center font-weight-bolder" type="number" name="qte_product" id="qte_product-{{ product.id }}" value="1"/>
+                </div>
+                <button class="btn btn-dark col-md-12" type="submit">Ajouter au panier</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

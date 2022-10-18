@@ -38,7 +38,7 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item ">
-                        <a class="nav-link" href="#">Nos produits</a>
+                        <a class="nav-link" href="{{ path('app_product') }}">Nos produits</a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link" href="#">Qui sommes nous ?</a>
@@ -47,6 +47,14 @@
                         <a class="nav-link" href="#">Contact</a>
                     </li>
                 </ul>
+
+                <form action="{{ path('app_product_search') }}" method="post">
+                    <div class="input-group my-auto">
+                        <input type="search" class="form-control" placeholder="Rechercher...">
+                        <button class="btn btn-secondary" type="button" id="search">Rechercher</button>
+                    </div>
+                </form>
+
                 <div class="text-light">
                     {% if (app.user) %}
                         <a class="text-light" href="{{ path('app_account') }}">Mon compte <small>(Bonjour {{ app.user.firstname }})</small></a> | <a class="text-light" href="{{ path('app_logout') }}">Déconnexion</a>
