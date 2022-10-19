@@ -40,6 +40,10 @@ class ProductRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * @param Search $search
+     * @return array
+     */
     public function findBySearch(Search $search): array
     {
         $query = $this->createQueryBuilder('p')

@@ -15,9 +15,9 @@ class Search
     private array $categories = [];
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getString(): string
+    public function getString(): ?string
     {
         return $this->string;
     }

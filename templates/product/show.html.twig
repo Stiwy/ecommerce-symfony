@@ -28,13 +28,9 @@
                 </div>
             </div>
 
-            <form action="" class="border-top border-secondary mt-5 pt-5">
-                <div class="form-group col-md-4">
-                    <label for="qte_product">Qunatité</label>
-                    <input class="form-control text-center font-weight-bolder" type="number" name="qte_product" id="qte_product-{{ product.id }}" value="1"/>
-                </div>
-                <button class="btn btn-dark col-md-12" type="submit">Ajouter au panier</button>
-            </form>
+            <div class="border-top border-secondary mt-5 pt-5">
+                <a href="{{ path('app_cart_add', {'id' : product.id}) }}" class="btn btn-dark col-md-12">Ajouter au panier</a>
+            </div>
         </div>
     </div>
 </div>
