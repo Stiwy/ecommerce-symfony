@@ -4,19 +4,26 @@
 
 {% block body %}
 
-<div class="container mt-5">
-    <h1>Nos produits</h1>
+<div class="container mx-auto my-5 row">
+    <div class="col-md-3">
+        <h2>Filtrer</h2>
 
-    <div class="row">
-        {% for product in products %}
-            <div class="col-md-3 pointer" onclick="redirectToProduct('{{ path('app_product_show', {'slug': product.slug}) }}')">
-                <img src='uploads/images/products/{{ product.image }}' class="card-img-top" alt="{{ product.name }}">
-                <div class="text-center bg-light">
-                    <h5><small>{{ product.subtitle }}</small></h5>
-                    <p class="font-weight-bold">{{ ((product.price/100)*1.20)|number_format(2, ',') }}€</p>
+        {{ form(form) }}
+    </div>
+    <div class="col-md-9">
+        <h1>Nos produits</h1>
+
+        <div class="row">
+            {% for product in products %}
+                <div class="col-md-3 pointer" onclick="redirectToProduct('{{ path('app_product_show', {'slug': product.slug}) }}')">
+                    <img src='uploads/images/products/{{ product.image }}' class="card-img-top" alt="{{ product.name }}">
+                    <div class="text-center bg-light">
+                        <h5><small>{{ product.subtitle }}</small></h5>
+                        <p class="font-weight-bold">{{ ((product.price/100)*1.20)|number_format(2, ',') }}€</p>
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 </div>
 
