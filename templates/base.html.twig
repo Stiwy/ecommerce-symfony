@@ -49,10 +49,16 @@
                 </ul>
 
                 <div class="text-light">
+                    <a href="{{ path('app_cart') }}" class="text-decoration-none text-white">
+                        <span class="badge">{{ app.session.get('cart')|length }} Article(s)</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+                            <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                        </svg>
+                    </a>
                     {% if (app.user) %}
-                        <a class="text-light" href="{{ path('app_account') }}">Mon compte <small>(Bonjour {{ app.user.firstname }})</small></a> | <a class="text-light" href="{{ path('app_logout') }}">Déconnexion</a>
+                       |  <a class="text-light" href="{{ path('app_account') }}">Mon compte <small>(Bonjour {{ app.user.firstname }})</small></a> | <a class="text-light" href="{{ path('app_logout') }}">Déconnexion</a>
                     {% else %}
-                        <a class="text-light" href="{{ path('app_login') }}">Connexion</a> | <a class="text-light" href="{{ path('app_register') }}">Inscription</a>
+                        | <a class="text-light" href="{{ path('app_login') }}">Connexion</a> | <a class="text-light" href="{{ path('app_register') }}">Inscription</a>
                     {% endif %}
                 </div>
             </div>
